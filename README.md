@@ -5,6 +5,7 @@ This project uses React and shows an ecommerce shop.
 ## Technologies
 
 - React
+- React Router
 - [Chec/Commerce](https://commercejs.com/)
 
 ## Hints
