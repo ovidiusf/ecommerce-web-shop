@@ -49,6 +49,8 @@ const App = () => {
   const refreshCart = async () => {
     const newCart = await commerce.cart.refresh();
 
+    console.log('newCart', newCart);
+
     setCart(newCart);
   };
 
@@ -58,6 +60,8 @@ const App = () => {
         checkoutTokenId,
         newOrder
       );
+
+      console.log('incomingORder', incomingOrder);
 
       setOrder(incomingOrder);
       refreshCart();
@@ -71,10 +75,6 @@ const App = () => {
     fetchProducts();
     fetchCart();
   }, []);
-
-  console.log(cart);
-
-  // console.log(products);
 
   return (
     <Router>
