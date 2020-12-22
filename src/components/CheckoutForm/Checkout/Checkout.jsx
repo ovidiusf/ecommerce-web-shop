@@ -7,12 +7,14 @@ import {
   Typography,
   CircularProgress,
   Divider,
-  Button
+  Button,
+  CssBaseline
 } from '@material-ui/core';
 import useStyles from './styles.js';
 import AddressForm from '../AddressForm';
 import PaymentForm from '../PaymentForm';
 import { commerce } from '../../../lib/commerce';
+import { Link } from 'react-router-dom';
 
 // Define the steps for checking out
 const steps = ['Shipping address', 'Payment details'];
@@ -60,10 +62,44 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
       />
     );
 
-  const Confirmation = () => <div>Confirmation</div>;
+  let Confirmation = () =>
+    order.customer ? (
+      <>
+        <div>
+          <Typography variant='h5'>
+            Thank you for your purchase, {order.customer.firstname}{' '}
+            {order.customer.lastname}!
+          </Typography>
+          <Divider className={classes.divider} />
+          <Typography variant='subtitle2'>
+            Order ref: {order.customer_reference}
+          </Typography>
+        </div>
+        <br />
+        <Button component={Link} variant='outlined' type='button' to='/'>
+          Back to home
+        </Button>
+      </>
+    ) : (
+      <div className={classes.spinner}>
+        <CircularProgress />
+      </div>
+    );
+  if (error) {
+    Confirmation = () => (
+      <>
+        <Typography variant='h5'>Error: {error}</Typography>
+        <br />
+        <Button component={Link} variant='outlined' type='button' to='/'>
+          Back to home
+        </Button>
+      </>
+    );
+  }
 
   return (
-    <div>
+    <>
+      <CssBaseline />
       <div className={classes.toolbar} />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
@@ -84,7 +120,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
           )}
         </Paper>
       </main>
-    </div>
+    </>
   );
 };
 

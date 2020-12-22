@@ -22,24 +22,29 @@ const AddressForm = ({ checkoutToken, next }) => {
   const [shippingOption, setShippingOption] = useState('');
   const methods = useForm();
 
+  // fetch the shipping countries from the commerce instance
   const fetchShippingCountries = async (checkoutTokenId) => {
     const { countries } = await commerce.services.localeListShippingCountries(
       checkoutTokenId
     );
 
     setShippingCountries(countries);
+    // select the first available country
     setShippingCountry(Object.keys(countries)[0]);
   };
 
+  // get the subdivisions based on the country code
   const fetchSubdivisions = async (countryCode) => {
     const { subdivisions } = await commerce.services.localeListSubdivisions(
       countryCode
     );
 
     setShippingSubdivisions(subdivisions);
+    // select the first available subdivision
     setShippingSubdivision(Object.keys(subdivisions)[0]);
   };
 
+  //fetch the available shipping options
   const fetchShippingOptions = async (
     checkoutTokenId,
     country,
@@ -51,6 +56,7 @@ const AddressForm = ({ checkoutToken, next }) => {
     );
 
     setShippingOptions(options);
+    // select the first available option
     setShippingOption(options[0].id);
   };
 
