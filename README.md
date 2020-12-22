@@ -1,16 +1,21 @@
 # ECommerce WebShop
 
-This project uses React and shows an ecommerce shop.
+This project uses React and shows an E-Commerce shop, The Store. It uses _commerce.js_ and _stripe_ to showcase a real working E-Commerce shop, for the backend. The products come from _commerce.js_, while the payment is done via _stripe_. This is a demo project, nothing will be shipped/payed.
 
 ## Technologies
 
 - React
 - React Router
 - [Chec/Commerce](https://commercejs.com/)
+- [Stripe](https://stripe.com/)
+- [Material UI](https://material-ui.com/)
 
-## Hints
+## IMPORTANT!
 
-- To use the _Chec/Commerce_ platform, create an account and insert your API key in the .env-example file. Rename the file as .env afterwards
+- To use the _Chec/Commerce_ platform, create an account and insert a test API key in the .env-example file.
+- To use _Stripe_ platform, create an account and insert a test API key in the .env-example file.
+- Rename the file as .env afterwards
+- Make sure to connect the _Stripe_ platform with the _Chec/Commerce_ platform and add the API keys there too. A credit card is required, but there are no fees, as long as it is kept for testing only.
 
 ## Available Scripts
 

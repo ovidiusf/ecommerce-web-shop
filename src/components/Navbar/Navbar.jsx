@@ -34,7 +34,7 @@ const Navbar = ({ totalItems }) => {
               height='30px'
               className={classes.image}
             />
-            Commerce Webshop
+            The Store
           </Typography>
           <div className={classes.grow}></div>
           {location.pathname === '/' && (

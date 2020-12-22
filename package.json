@@ -2,6 +2,7 @@
   "name": "ecommerce-web-shop",
   "version": "0.2.0",
   "private": true,
+  "homepage": "/",
   "dependencies": {
     "@chec/commerce.js": "^2.3.0-beta1",
     "@material-ui/core": "^4.11.2",
